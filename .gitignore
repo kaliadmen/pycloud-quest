@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# IDEs (JetBrains keeps some shareable files, but the folder churns too much to track)
+.idea/
+.vscode/
+*.iml
+
+# Runtime data your cloud creates while you experiment. Never commit it.
+**/blobs/
+**/data/
+*.db
+*.sqlite3
+*.log
+logs/
+
+# Secrets and keys. If one of these ever shows up in `git status`, stop and ask why.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+secrets/
+
+# OS clutter
+.DS_Store
+Thumbs.db

@@ -1,0 +1,43 @@
+[project]
+name = "pycloud-quest"
+version = "0.1.0"
+description = "Learn Python by building Nimbus, a small cloud platform, and securing it."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []  # Lessons add dependencies only when the lesson is about that library.
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.uv]
+package = false  # The repo is run in place; `nimbus` is importable through pytest's pythonpath.
+
+[tool.pytest.ini_options]
+testpaths = ["lessons", "nimbus", "tests"]
+pythonpath = ["."]
+# importlib mode lets test files in different lessons share a name without clashing.
+# Challenge and bug-hunt tests fail on purpose until you solve them, so the default run skips them.
+#   uv run pytest                 -> shipped code only (what CI runs)
+#   uv run pytest -m challenge    -> your challenges
+#   uv run pytest -m bughunt      -> the planted bugs
+addopts = "--import-mode=importlib -m 'not challenge and not bughunt'"
+markers = [
+    "challenge: TODO exercises you implement. Fails until solved.",
+    "bughunt: planted bugs you fix. Fails until fixed.",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F = errors, I = import order, B = common bugs, UP = modern Python, S = security (bandit rules)
+select = ["E", "F", "I", "B", "UP", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S101"]                 # assert is how pytest works
+"**/test_*.py" = ["S101"]
+"**/BUGS/**" = ["S", "B"]                # the bugs are planted on purpose

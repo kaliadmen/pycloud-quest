@@ -1,0 +1,15 @@
+# Store and check out text files with LF on every OS, so Windows and the VM see identical bytes.
+# (PyCharm and Python handle LF fine on Windows. Lesson 01 shows why identical bytes matter for hashes.)
+* text=auto eol=lf
+
+# Windows scripts need CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files: never touch line endings
+*.png binary
+*.jpg binary
+*.pcap binary
+*.pcapng binary
+*.db binary
+*.bin binary
