@@ -34,3 +34,8 @@ Alternative: finish C Phases 1 and 2 first, then run Python full speed.
 ## 2026-11-10: The app is "Drop"
 A secure file-sharing app for friends. It exercises every Nimbus service (identity, storage, secrets,
 logs) and makes the Phase 7 security labs realistic. A JRPG cloud-save endpoint is a stretch goal that links to the C++ course.
+
+## 2026-11-12: Develop on the Ubuntu Server VM only
+Quinze already develops on an Ubuntu Server VM through JetBrains over SSH, and keeps language toolchains off
+Windows to protect the OS. All setup and lessons target the VM. Windows steps are optional and always say what
+they install. GUI tools like Wireshark open capture files copied from the VM.

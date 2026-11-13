@@ -70,8 +70,8 @@ grows one lesson at a time and old code keeps getting reused (built-in spaced re
 ## Phases
 
 ### Phase 0: Setup (one session)
-Python 3.12+, `uv`, PyCharm (or CLion's Python plugin), Git on Windows and the Ubuntu VM, Docker on
-the VM, Wireshark. Repo cloned and `uv run pytest` passing on every machine.
+Everything on the Ubuntu Server VM: Git, `uv` (which brings Python), Docker, tcpdump/tshark. PyCharm on Windows
+connects over SSH. Nothing has to be installed on Windows. Repo cloned and `uv run pytest` passing on every machine.
 **Milestone:** green CI run on GitHub.
 
 ### Phase 1: Python for infrastructure code

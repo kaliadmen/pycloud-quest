@@ -16,8 +16,10 @@ The repo is the single source of truth. Nothing depends on chat history.
 ## About the learner
 - Works in IT application support. Knows C#, some Python, VBA, MS Access, Power Automate, has Azure exposure.
 - Goal: security analyst (blue team / SOC), cloud security. Studying CompTIA Network+ / Security+ / CySA+.
-- Uses Windows 11 (main), an Ubuntu VM, JetBrains IDEs (CLion, PyCharm), and a home lab with two
-  Raspberry Pis plus a 32 GB laptop.
+- Develops on an **Ubuntu Server VM**, using JetBrains IDEs on Windows 11 connected over SSH (remote development).
+  No language toolchains are installed on Windows, by choice. All commands and lessons target the VM.
+  Windows-side steps are optional, and must say what they install. Home lab: two Raspberry Pis plus a 32 GB laptop.
+- The VM is a server with no desktop: GUI tools (Wireshark) run on Windows and open files copied from the VM.
 - Time: full-time job. Short weekday review sessions, longer weekend build sessions. He also runs the C/C++ course.
 - Uses voice-to-text, so messages may contain transcription errors. Read for intent.
 
@@ -53,7 +55,7 @@ Conventions:
 - Standard library first. Add a dependency only when the lesson is about that library or doing it by hand
   would be unsafe (crypto, password hashing).
 - Never write custom crypto. Use `hashlib`, `hmac`, `secrets`, `cryptography`, `argon2-cffi`.
-- Cross-platform: code must run on Windows and Linux. Note when a step is Linux-only (nftables, cgroups).
+- Linux first (the VM and Pis), but keep code portable where it's free (pathlib, no hard-coded `/`). CI also runs on Windows.
 - When a lesson is done, its reusable code graduates into `nimbus/` with tests. Note this in `PROGRESS.md`.
 
 ## Reviewing work

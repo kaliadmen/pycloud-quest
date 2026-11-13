@@ -7,7 +7,7 @@
 
 ## Session plan
 **Weekend build (3 to 4 hours)**
-0. Open a terminal in this folder (`cd lessons/phase1/01-bytes-and-hashing`). `uv run` finds the project from here.
+0. Open a terminal in this folder (`cd ~/dev/pycloud-quest/lessons/phase1/01-bytes-and-hashing` on the VM, or the PyCharm terminal). `uv run` finds the project from here.
 1. Read this README (30 min).
 2. `uv run python explore_bytes.py`. Read every section's output, then change its KNOBS (20 min).
 3. `uv run python blobstore.py demo`. Then open the `blobs/` folder in your file explorer and look at it (10 min).
@@ -18,7 +18,7 @@
 
 **Weekday reviews (45 to 60 min each)**
 - Answer `QUIZ.md` from memory, then check.
-- Work through `UNDER_THE_HOOD.md` (strace on the VM, Process Monitor on Windows).
+- Work through `UNDER_THE_HOOD.md` (bytecode with `dis`, then system calls with `strace` on the VM).
 - Run your `find_duplicates` on your real Downloads folder.
 
 ---

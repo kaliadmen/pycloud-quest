@@ -7,12 +7,11 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done. Add the date when some
 - **Next up:** Phase 0 setup guide, then Lesson 01
 
 ## Phase 0: Setup
-- [ ] Python 3.12+ and `uv` on Windows
-- [ ] Python 3.12+ and `uv` on the Ubuntu VM
-- [ ] Repo cloned on every machine, `uv run pytest` passes
-- [ ] PyCharm opens the project with the `.venv` interpreter
-- [ ] Docker working on the Ubuntu VM (needed from Phase 4)
-- [ ] Wireshark installed (needed from Phase 2)
+- [ ] Git, `gh` and `uv` on the Ubuntu VM
+- [ ] Repo cloned on the VM, `uv run pytest` passes
+- [ ] PyCharm (remote over SSH) opens the project with the `.venv` interpreter
+- [ ] Docker working on the VM (needed from Phase 4)
+- [ ] tcpdump / tshark on the VM (needed from Phase 2)
 - [ ] First green CI run on GitHub
 
 ## Phase 1: Python for infrastructure code

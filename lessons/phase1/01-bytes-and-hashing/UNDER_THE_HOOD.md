@@ -32,6 +32,7 @@ Output on Python 3.13 (other versions differ slightly):
 ## 2. System calls on Linux (Ubuntu VM) with `strace`
 ```bash
 cd lessons/phase1/01-bytes-and-hashing
+sudo apt install -y strace    # once
 strace -f -e trace=openat,write,fsync,rename ../../../.venv/bin/python blobstore.py --root /tmp/st put-text "hello"
 ```
 The important lines (real output, trimmed):
@@ -49,13 +50,11 @@ Read each flag. They're security decisions made by `tempfile.mkstemp` for you:
 
 **Try:** run `put-text "hello"` a second time with strace. Why are there no `openat`/`rename` lines for the store this time?
 
-## 3. Same thing on Windows with Process Monitor
-1. Install Sysinternals Process Monitor (`winget install Microsoft.Sysinternals.ProcessMonitor`).
-2. Filter: *Process Name is python.exe*, then *Path contains blobs*.
-3. Run `uv run python blobstore.py put-text "hello windows"`.
-4. Find `CreateFile` on the `.tmp-` file, `WriteFile`, `FlushBuffersFile` (Windows' fsync), and `SetRenameInformationFile` (Windows' rename).
-
-Sysmon, which feeds your Wazuh server later in the course, logs these same kinds of events.
+## 3. (Optional) The Windows view
+Windows has the same idea under different names: `CreateFile`, `WriteFile`, `FlushBuffersFile` (fsync) and
+`SetRenameInformationFile` (rename). Sysinternals Process Monitor shows them live, and Sysmon (which feeds Wazuh later
+in the course) logs the same kinds of events. Seeing it yourself needs Python on Windows, so skip this unless you
+decide to install it. Knowing the Windows names is enough for now.
 
 ## 4. Look at a blob's raw bytes
 Use `hexview` from your C course (or `xxd` / `Format-Hex` in PowerShell) on a blob file. Then run

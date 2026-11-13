@@ -40,11 +40,12 @@ Being wrong is the useful part, so write down why you were wrong. Reset knobs af
 - Predict the blob count:
 - **Result:**
 
-### 8. Store a file from Windows Notepad and the "same" file from nano on the VM
-Write `hello` + Enter in both, save as `w.txt` and `l.txt`, then `put` each.
+### 8. A "Windows" file vs a "Linux" file with the same text
+On the VM: `printf 'hello\r\n' > w.txt` (Windows line ending) and `printf 'hello\n' > l.txt` (Linux line ending).
+Or create `w.txt` in Notepad on Windows and drag it into the project in PyCharm. Then `put` each.
 - Predict whether the digests match:
 - **Result:**
-- Open both with your `hexview` from the C course (or `xxd`). What's different?
+- Open both with your `hexview` from the C course (or `xxd w.txt`). What's different?
 
 ### 9. `ATOMIC_WRITES = False`. Can you think of a way to *see* the difference?
 Hint: what if the program is killed in the middle of a large write? Try: generate a 1 GB file, `put` it,
